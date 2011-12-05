@@ -1,0 +1,86 @@
+(ns clj-hangman.core)
+(use '[clojure.java.io :only [reader]])
+(use '[clojure.string :only [replace]])
+;;(use '[clojure.string :only [ trim ]])
+
+(def wordlist
+  (line-seq (reader "./dutchwordlist.txt")))
+
+(defn select-word []
+    (rand-nth wordlist))
+
+(def word (select-word))
+(println word)
+;;(def hidden-word (replace word #"[a-z]"  "."))
+
+(defn replace-hidden-letter [ guessed-letter word-letter ]
+  (if (.equals guessed-letter word-letter)
+    guessed-letter
+    "."))
+
+(defn check-if-found [ guessed-letter word-letter letter-from-hidden-word ]
+  (if-not (.equals letter-from-hidden-word ".")
+      letter-from-hidden-word
+      (replace-hidden-letter guessed-letter word-letter)))
+
+(defn my-func [guessed-letter hidden-word]
+    (let [h-word (apply str (map #(check-if-found guessed-letter %1 %2) word hidden-word))]
+       h-word))
+
+(loop [ hidden-word (replace word #"[a-z]" ".") ]
+    (println hidden-word )
+    (if (.equals hidden-word word)
+        (println "well done!!! you solved it")
+        (recur (my-func (read-line) hidden-word))))
+
+
+
+
+
+
+
+;;(true false false true)
+
+(def letter \t)
+(map #(.equals %1 letter) "test")
+;;(true false false true)
+
+(char? (first "test" ))
+
+(def hidden-word "...." )
+(def letter \t)
+(for [word-letter "test" ]
+   (if (.equals word-letter letter)
+     (println "yes")
+     (println "no")))
+
+
+    
+
+
+
+    (replace hidden-word #(letter) letter)
+
+
+;; werkt. stopt als "." ingevoerd anders echo
+(loop [ letter "e" ] 
+  (println letter)
+  (if (.equals letter ".")
+     (println "if true")
+      (recur (read-line)  )))
+
+
+;; werkt. stopt als "test" in gevoerd
+(def word "test")
+
+(loop [ h-word (str nil) ]
+   (if (.equals h-word word)
+       h-word
+       (recur (str h-word (str (read-line))))))
+       
+       
+       
+       
+         (when-not (.equals "a" "a")
+      "q")
+
