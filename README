@@ -1,0 +1,14 @@
+# clj-hangman
+
+A simply Clojure hangman program as discussed at the Clojure Exchange on
+December 1st 2011, London UK.
+
+## Usage
+
+
+
+## License
+
+Copyright (C) 2011 FIXME
+
+Distributed under the Eclipse Public License, the same as Clojure.
