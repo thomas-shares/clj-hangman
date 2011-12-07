@@ -1,4 +1,4 @@
-(defproject clj-hangman "1.0.0-SNAPSHOT"
+(defproject clj-hangman "0.0.1-SNAPSHOT"
   :description "Clojure version of Hangman... not complete..."
   :main  clj-hangman.core
   :test-path "spec/"

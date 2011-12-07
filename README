@@ -5,10 +5,13 @@ December 1st 2011, London UK.
 
 ## Usage
 
+Set the language at line 7:
+ (def language :dutch|:english )
 
+create a (uber)jar and run it
 
 ## License
 
-Copyright (C) 2011 FIXME
+Copyright (C) 2011
 
 Distributed under the Eclipse Public License, the same as Clojure.
