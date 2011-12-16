@@ -1,13 +1,13 @@
 (ns clj-hangman.test.core
   (:use [clj-hangman.core])
-  (:use [clojure.test]))
+  (:use midje.sweet))
 
- 
+(fact
+    (check-letter "a" "a" ".") => "a" 
+    (check-letter "a" "b" ".") => "."
+    (check-letter "a" "b" "q") => "q")
 
-(deftest test-check-letter
-    (is (check-letter "a" "a" ".") "a")
-    (is (check-letter "a" "b" ".") ".")
-    (is (check-letter "a" "b" "q") "q"))
-    
-(deftest test-my-func
-    (is (my-func \e "......." ) nil))
+(fact
+    (my-search-func \e "test" "...." ) => ".e.."
+    (my-search-func \t "test" "...." ) => "t..t"
+    (my-search-func \t "test" ".e.." ) => "te.t" ) 
